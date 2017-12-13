@@ -1,0 +1,19 @@
+body {
+  background-color: #F0EFDA;
+}
+h1, .contact{
+  text-align: center;
+}
+
+li.school {
+  list-style: none;
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 0;
+  margin-left: -10px;
+}
