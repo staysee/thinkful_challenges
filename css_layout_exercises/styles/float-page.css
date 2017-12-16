@@ -10,3 +10,25 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
+
+.nebula {
+  width: 300px;
+
+}
+
+.left {
+  float: left;
+  margin-right: 15px;
+}
+
+.right {
+  float: right;
+  margin-left: 15px;
+}
+
+.left, .right {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
