@@ -4,26 +4,31 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
   margin: 0;
+  padding: 75px;
 }
 
 a {
   text-decoration: none;
+}
+
+.logo a, .page-button {
   color: black;
 }
 
 .navbar {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: #e5e5e5;
   border-bottom: 1px solid #CCCCC6;
-  padding: 10px;
 }
 
 .navlinks {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 10px;
 }
 
@@ -35,13 +40,71 @@ a {
 
 .logo {
   font-size: 18px;
+  padding-left: 8px;
 }
 
 .search-form {
-  border: 1px solid red;
+  margin-bottom: 10px;
 }
 
 .search-label {
   display: block;
+  margin-bottom: 10px;
+}
+
+.search-field{
+  width: 400px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.search-button{
+  width: 35px;
+  height: 30px;
+  vertical-align: bottom;
+  border: 1px solid #C9C9C4;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.search-form, .pages {
+  margin-bottom: 25px;
+}
+
+.pages {
+  border: 1px solid #C9C9C4;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.page-button {
+  display: inline-block;
+}
+
+.page-showpage {
+  border-left: 1px solid #C9C9C4;
+  border-right: 1px solid #C9C9C4;
+}
+
+.page-button, .page-showpage {
+  padding: 5px 20px;
+}
+
+.listings {
+  padding: 0;
+}
+
+.listing {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.listing-date, .listing-location {
+  color: #BDBCBA;
+}
+
+.listing-title {
+  padding: 0 10px;
 }
 
