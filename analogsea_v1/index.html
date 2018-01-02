@@ -7,17 +7,34 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-
-<!-- SEO and accessibility friendly - include title description  -->
-<!-- use labels with their for attribute set on form -->
-
   <!-- Logo at top of page, horizontally centered, height of 35px-->
-  <!-- Form post to url /signup/ when user submits -->
-  <!-- email and password fields required -->
-  <!-- form validate email field -->
-  <!-- "forgot password link points to /forgot-password/new -->
-  <!-- login link point to /login -->
-  <!-- submit button hover to darker shade green -->
+  <img class="logo" src="logo.png" alt="AnalogSea">
+
+  <!-- Form POST to url /signup/ when user submits -->
+  <form action="/signup/" method="post">
+    <fieldset>
+      <legend>Sign Up</legend>
+      <!-- email and password fields required -->
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="foo@bar.com" required>
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="1234passw0rd" required>
+
+      <!-- submit button hover to darker shade green -->
+      <button type="submit">Sign up</button>
+      <p>
+        <!-- "forgot password link points to /forgot-password/new -->
+        <a href="/forgot-password/new">Forgot password?</a>
+      </p>
+    </fieldset>
+  </form>
+
+  <footer>
+    <!-- login link point to /login -->
+    <p>Already have an account? <a href="/login">Log in</a></p>
+  </footer>
+
 
 </body>
 </html>
