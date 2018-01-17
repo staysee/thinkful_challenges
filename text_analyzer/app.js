@@ -11,7 +11,7 @@ function countUniqueWords(words){
       uniqueWords.push(words[i]);
     }
   }
-  //length of array is how many unique words
+  //length of array is number of unique words
   return uniqueWords.length;
 }
 
@@ -21,25 +21,23 @@ function averageWordLength(){
 }
 
 function createTextReport(text){
-  var wordBank = removePunctuation(text);
-  var wordCount = wordBank.length;
-  var uniqeWords = countUniqueWords(wordBank);
+  var words = removePunctuation(text);
+  var wordCount = words.split(" ").length;
+  var uniqeWords = countUniqueWords(words);
   var avgWordLength;
 
   var textReport = $('.js-text-report');
   textReport.find('.js-word-count').html(wordCount);
-  textReport.find('.js-unique-words').html(uniqueWords);
+  //textReport.find('.js-unique-words').html(uniqueWords);
 
-  textReport.removeClass('hidden');
-
-
+  textReport.removeClass('hidden'); //remove the hidden class to show the text report
 }
 
 function handleFormSubmit(){
   $('.js-text-form').submit(function(event){
     event.preventDefault();
-    //get user's text from the form
-    var userText = $(event.currentTarget).find('#user-text').val();
+
+    var userText = $(event.currentTarget).find('#user-text').val(); //get user's text from the form
     //alert(userText);
 
     createTextReport(removePunctuation(userText));
