@@ -1,5 +1,9 @@
-function removePunctuation(text){
-  return text.toLowerCase().replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,"");
+function turnToWords(text){
+  var noPunct = text.replace(/[~+[\]|<>".,\/#!@$?%\^&\*;:{}=\-_`()]/g, "");
+  var removedSpace = noPunct.replace(/\x{2,}/g," ");
+  var wordArray = removedSpace.toLowerCase().trim().split(" ");
+
+  return wordArray;
 }
 
 function countUniqueWords(words){
@@ -21,14 +25,14 @@ function averageWordLength(){
 }
 
 function createTextReport(text){
-  var words = removePunctuation(text);
+  var words = turnToWords(text);
   var wordCount = words.split(" ").length;
-  var uniqeWords = countUniqueWords(words);
+  var uniqueWords = countUniqueWords(words);
   var avgWordLength;
 
   var textReport = $('.js-text-report');
   textReport.find('.js-word-count').html(wordCount);
-  //textReport.find('.js-unique-words').html(uniqueWords);
+  textReport.find('.js-unique-word-count').html(uniqueWords);
 
   textReport.removeClass('hidden'); //remove the hidden class to show the text report
 }
@@ -40,7 +44,7 @@ function handleFormSubmit(){
     var userText = $(event.currentTarget).find('#user-text').val(); //get user's text from the form
     //alert(userText);
 
-    createTextReport(removePunctuation(userText));
+    createTextReport(turnToWords(userText));
   })
 }
 
