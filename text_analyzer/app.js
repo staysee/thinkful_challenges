@@ -1,9 +1,9 @@
 function turnToWords(text){
   var noPunct = text.replace(/[~+[\]|<>".,\/#!@$?%\^&\*;:{}=\-_`()]/g, "");
   var removedSpace = noPunct.replace(/\x{2,}/g," ");
-  var wordArray = removedSpace.toLowerCase().trim().split(" ");
+  var allWords = removedSpace.toLowerCase().trim();
 
-  return wordArray;
+  return allWords;
 }
 
 function countUniqueWords(words){
@@ -19,20 +19,23 @@ function countUniqueWords(words){
   return uniqueWords.length;
 }
 
-function averageWordLength(){
+function averageWordLength(words){
   //take length of all words together and divide by number of words
+  var totalLength = words.join("").length;
+  return (totalLength / words.length).toFixed(2);
 
 }
 
 function createTextReport(text){
-  var words = turnToWords(text);
-  var wordCount = words.split(" ").length;
-  var uniqueWords = countUniqueWords(words);
-  var avgWordLength;
+  var wordArray = text.split(" ");
+  var wordCount = wordArray.length;
+  var uniqueWords = countUniqueWords(wordArray);
+  var avgWordLength = averageWordLength(wordArray);
 
   var textReport = $('.js-text-report');
   textReport.find('.js-word-count').html(wordCount);
   textReport.find('.js-unique-word-count').html(uniqueWords);
+  textReport.find('.js-avg-word-length').html(avgWordLength);
 
   textReport.removeClass('hidden'); //remove the hidden class to show the text report
 }
