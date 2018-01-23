@@ -41,6 +41,7 @@ function handleAddItem(){
 		event.preventDefault();
 		addItem(state, $('#shopping-list-entry').val());
 		renderList(state, $('.shopping-list'));
+    $(this)[0].reset();
 	})
 }
 
