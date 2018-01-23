@@ -12,8 +12,8 @@ function deleteItem(state, itemIndex){
 	state.items.splice(itemIndex, 1);
 }
 
-function updateItem(state, itemIndex){
-
+function getItem(state, itemIndex){
+  state.items[itemIndex];
 }
 
 
@@ -45,7 +45,7 @@ function handleAddItem(){
 }
 
 function handleDeleteItem(){
-	$('.shopping-list').on('click', ".shopping-item-delete", (function(event){
+	$('.shopping-list').on('click', '.shopping-item-delete', (function(event){
     var itemIndex = $(this).closest('li').index();
     console.log(itemIndex);
     deleteItem(state, itemIndex);
@@ -55,8 +55,12 @@ function handleDeleteItem(){
 }
 
 function handleUpdateItem(){
-
+  $('.shopping-list').on('click', '.shopping-item-toggle', (function(event){
+    var checkItem = $(this).closest('li');
+    checkItem.toggleClass('shopping-item__checked');
+  }))
 }
 
 $(handleAddItem);
 $(handleDeleteItem);
+$(handleUpdateItem);
