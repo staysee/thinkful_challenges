@@ -42,8 +42,12 @@ function handleAddItem(){
 
 function handleDeleteItem(){
 	$('.shopping-list').click(function(event){
-		$(this).closest('li').remove();
-		renderList(state, $('.shopping-list'));
+    event.preventDefault();
+		var itemIndex = $(this).closest('li').index();
+    console.log($(this))
+    alert(itemIndex);
+    //deleteItem(state, itemIndex);
+		//renderList(state, $('.shopping-list'));
 	})
 
 }
