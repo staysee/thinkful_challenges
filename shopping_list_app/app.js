@@ -4,12 +4,17 @@ var state = {
 };
 
 //State modification functions
-var addItem = function(state, item){
+function addItem (state, item){
 	state.items.push(item);
 }
 
+function deleteItem(state, itemIndex){
+	state.items.slice(itemIndex, 1);
+}
+
+
 //Render functions
-var renderList = function(state, element){
+function renderList (state, element){
 	var itemsHTML = state.items.map(function(item){
 		return '<li>' +
         '<span class="shopping-item">' + item + '</span>' +
@@ -27,8 +32,21 @@ var renderList = function(state, element){
 }
 
 //Event listeners
-$('#js-shopping-list-form').submit(function(event){
-	event.preventDefault();
-	addItem(state, $('#shopping-list-entry').val());
-	renderList(state, $('.shopping-list'));
-});
+function handleAddItem(){
+	$('#js-shopping-list-form').submit(function(event){
+		event.preventDefault();
+		addItem(state, $('#shopping-list-entry').val());
+		renderList(state, $('.shopping-list'));
+	})
+}
+
+function handleDeleteItem(){
+	$('.shopping-list').click(function(event){
+		$(this).closest('li').remove();
+		renderList(state, $('.shopping-list'));
+	})
+
+}
+
+$(handleAddItem);
+$(handleDeleteItem);
