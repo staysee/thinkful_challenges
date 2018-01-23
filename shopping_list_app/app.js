@@ -9,7 +9,11 @@ function addItem (state, item){
 }
 
 function deleteItem(state, itemIndex){
-	state.items.slice(itemIndex, 1);
+	state.items.splice(itemIndex, 1);
+}
+
+function updateItem(state, itemIndex){
+
 }
 
 
@@ -41,14 +45,16 @@ function handleAddItem(){
 }
 
 function handleDeleteItem(){
-	$('.shopping-list').click(function(event){
-    event.preventDefault();
-		var itemIndex = $(this).closest('li').index();
-    console.log($(this))
-    alert(itemIndex);
-    //deleteItem(state, itemIndex);
-		//renderList(state, $('.shopping-list'));
-	})
+	$('.shopping-list').on('click', ".shopping-item-delete", (function(event){
+    var itemIndex = $(this).closest('li').index();
+    console.log(itemIndex);
+    deleteItem(state, itemIndex);
+		renderList(state, $('.shopping-list'));
+	}))
+
+}
+
+function handleUpdateItem(){
 
 }
 
