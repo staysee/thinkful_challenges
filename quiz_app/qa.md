@@ -48,9 +48,9 @@ Nori is:
 * green algae
 * blue algae
 * red algae*
-* brown algae*
+* brown algae
 
-What part of the sea urchin is eaten?
+What part of the sea urchin (uni) is eaten?
 
 * brain
 * eggs
