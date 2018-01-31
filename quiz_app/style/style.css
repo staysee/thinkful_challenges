@@ -1,11 +1,15 @@
+body {
+  background: url('../img/sushi-background.jpg');
+  background-size: cover;
+}
 #welcome-container {
-  border: 2px solid red;
+  /*border: 2px solid red;*/
   width: 70%;
   margin: 0 auto;
 }
 
 #quiz-container {
-  border: 2px dotted blue;
+  /*border: 2px dotted blue;*/
   width: 70%;
   margin: 0 auto;
 }
@@ -15,10 +19,20 @@
 }
 
 .card {
-  border: 2px solid green;
+  height: 250px;
+  border: 2px dotted black;
+  border-radius: 10px;
   text-align: center;
-  margin: auto;
+  background-color: #1A7B16
 }
 .answer-choices {
   display: block;
+}
+
+button {
+  padding: 10px;
+  width: 100px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
 }
