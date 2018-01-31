@@ -52,7 +52,7 @@ function checkAnswer(answer){
 }
 
 function nextQuestion(){
-  if (number < 10){
+  if (number < 9){
     number++;
     console.log(number);
   }
