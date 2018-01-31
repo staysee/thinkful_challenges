@@ -1,17 +1,23 @@
 #welcome-container {
   border: 2px solid red;
-  width: 600px;
+  width: 70%;
   margin: 0 auto;
 }
 
 #quiz-container {
   border: 2px dotted blue;
-  width: 600px;
+  width: 70%;
   margin: 0 auto;
+}
+
+.hidden {
+  display: none;
 }
 
 .card {
   border: 2px solid green;
+  text-align: center;
+  margin: auto;
 }
 .answer-choices {
   display: block;

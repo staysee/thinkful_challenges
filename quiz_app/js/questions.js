@@ -1,6 +1,6 @@
 var questions = [
 {
-  question: 'What is known as Japanese horeradish?',
+  question: 'What is known as Japanese horseradish?',
   choices: [ 'wasabi', 'nigori', 'mooli', 'ninjin' ],
   correctAnswer: 0
 },
