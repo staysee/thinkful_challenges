@@ -1,0 +1,18 @@
+#welcome-container {
+  border: 2px solid red;
+  width: 600px;
+  margin: 0 auto;
+}
+
+#quiz-container {
+  border: 2px dotted blue;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 2px solid green;
+}
+.answer-choices {
+  display: block;
+}
