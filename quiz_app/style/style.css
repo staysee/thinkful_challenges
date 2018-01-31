@@ -1,7 +1,14 @@
 body {
   background: url('../img/sushi-background.jpg');
   background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Coming Soon', cursive;
 }
+
+.quiz-title {
+  color: white;
+}
+
 #welcome-container {
   /*border: 2px solid red;*/
   width: 70%;
@@ -18,15 +25,20 @@ body {
   display: none;
 }
 
+.scoring {
+  float: right;
+}
 .card {
-  height: 250px;
+  height: 30%px;
   border: 2px dotted black;
   border-radius: 10px;
   text-align: center;
-  background-color: #1A7B16
+  background-color: #1A7B16;
+  clear: both;
 }
 .answer-choices {
   display: block;
+  color: white;
 }
 
 button {

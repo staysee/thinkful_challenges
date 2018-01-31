@@ -16,8 +16,10 @@ function startGame(){
 function displayQuestion(){
   var questionArea = $('.questions');
   var questionNumber = $('.q-number');
+  var currentScore = $('.scoring');
   questionArea.html(questions[number].question);
   questionNumber.html(number + 1 + " of " + questions.length);
+  currentScore.html("Correct: " + scoreCorrect + ", Incorrect: " + scoreIncorrect);
 
   console.log(questions[number].question);
   console.log(questions[number].choices[0])
@@ -38,12 +40,14 @@ function checkAnswer(answer){
     console.log("Correct!");
     $('#choice'+answer).css('color', 'green')
     $('.js-next').removeClass('hidden');
+    scoreCorrect++;
 
   } else {
     console.log("Wrong answer");
     $('#choice'+answer).css('color', 'red');
     $('#choice'+rightAnswer).css('color', 'green');
     $('.js-next').removeClass('hidden');
+    scoreIncorrect++;
   }
 }
 
