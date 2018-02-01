@@ -9,14 +9,8 @@ body {
   color: white;
 }
 
-#welcome-container {
+#welcome-container, #quiz-container, #endgame-container {
   /*border: 2px solid red;*/
-  width: 70%;
-  margin: 0 auto;
-}
-
-#quiz-container {
-  /*border: 2px dotted blue;*/
   width: 70%;
   margin: 0 auto;
 }
@@ -27,7 +21,10 @@ body {
 
 .scoring {
   float: right;
+  font-weight: bold;
+  color: #E5E323;
 }
+
 .card {
   height: 30%px;
   border: 2px dotted black;
@@ -41,10 +38,20 @@ body {
   color: white;
 }
 
+.correct-answer {
+  color: #24FE00;
+}
+
+.incorrect-answer {
+  color: #F4303E;
+}
+
 button {
   padding: 10px;
   width: 100px;
   margin: 10px;
   background-color: white;
   border-radius: 10px;
+  font-family: 'Coming Soon';
+  font-weight: bolder;
 }
