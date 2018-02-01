@@ -3,10 +3,13 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Coming Soon', cursive;
+  font-size: 20px;
 }
 
 .quiz-title {
   color: white;
+  text-align: center;
+  font-size: 4em;
 }
 
 #welcome-container, #quiz-container, #endgame-container {
@@ -22,16 +25,22 @@ body {
 .scoring {
   float: right;
   font-weight: bold;
-  color: #E5E323;
+  color: #E20FB8;
+  font-size: 1.5em;
 }
 
 .card {
-  height: 30%px;
+  height: 50%;
   border: 2px dotted black;
   border-radius: 10px;
   text-align: center;
   background-color: #1A7B16;
   clear: both;
+}
+
+
+.questions, .q-number {
+  color: #E6E354;
 }
 .answer-choices {
   display: block;
