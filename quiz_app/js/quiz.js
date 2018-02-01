@@ -112,10 +112,17 @@ function handleNextButton() {
   $('#quiz-container').on('click', '.js-next', nextQuestion);
 }
 
+function handleHover(){
+  $('.answer-choices').hover(function() {
+        $(this).css('cursor','pointer');
+    });
+}
+
 
 
 $(handlePlayButton);
 $(handleRestartButton);
 $(handleChoices);
 $(handleNextButton);
+$(handleHover);
 
