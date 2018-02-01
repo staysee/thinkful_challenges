@@ -41,7 +41,7 @@ var questions = [
 },
 {
   question: 'Which of these is not tuna?',
-  choices: [ 'Skipjack', 'Albacroe', 'Bluefin', 'Hamachi' ],
+  choices: [ 'Skipjack', 'Albacore', 'Bluefin', 'Hamachi' ],
   correctAnswer: 3
 },
 {
