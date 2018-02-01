@@ -3,6 +3,13 @@ var scoreCorrect;
 var scoreIncorrect;
 
 
+function render(){
+  displayQuestion()
+  displayAnswers()
+  endGame()
+}
+
+
 function startGame(){
   number = 0;
   scoreCorrect = 0;
@@ -26,6 +33,7 @@ function endGame(){
 }
 
 
+// GAME LOGIC //
 function displayQuestion(){
   var questionArea = $('.questions');
   var questionNumber = $('.q-number');
@@ -75,15 +83,9 @@ function nextQuestion(){
   render();
 }
 
-function render(){
-  displayQuestion()
-  displayAnswers()
-  endGame()
-}
 
 
-
-//Event Listeners
+// EVENT LISTENERS //
 function handlePlayButton(){
   $('#welcome-container').on('click', '.js-play-button', startGame);
   $('#endgame-container').on('click', '.js-play-button', startGame);
