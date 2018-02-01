@@ -9,6 +9,9 @@ function render(){
   endGame()
 }
 
+function newGame(){
+  location.reload();
+}
 
 function startGame(){
   number = 0;
@@ -88,7 +91,7 @@ function nextQuestion(){
 // EVENT LISTENERS //
 function handlePlayButton(){
   $('#welcome-container').on('click', '.js-play-button', startGame);
-  $('#endgame-container').on('click', '.js-play-button', startGame);
+  $('#endgame-container').on('click', '.js-play-button', newGame);
 }
 
 function handleRestartButton(){
