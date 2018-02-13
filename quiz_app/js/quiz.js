@@ -115,6 +115,7 @@ function handleNextButton() {
 function handleHover(){
   $('.answer-choices').hover(function() {
         $(this).css('cursor','pointer');
+        $(this.css('font-size', ''))
     });
 }
 
