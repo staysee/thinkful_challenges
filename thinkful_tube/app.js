@@ -41,8 +41,8 @@ function displayYouTubeSearchData(data){
 function watchSubmit() {
   $('.js-search-form').submit(function(event){
     event.preventDefault();
-    var queryTarget = $(event.currentTarget).find('.js-query');
-    var query = queryTarget.val();
+    const queryTarget = $(event.currentTarget).find('.js-query');
+    const query = queryTarget.val();
     console.log(query);
 
     queryTarget.val("");  //clear input
