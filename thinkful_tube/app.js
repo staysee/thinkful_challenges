@@ -15,10 +15,18 @@ function getDataFromApi (searchTerm, callback){
 }
 
 function renderResult(result) {
+  const videoPreURL = 'https://youtube.com/watch?v=';
+  const videoID = result.id.videoId;
+  const videoURL = videoPreURL + videoID;
+  const channelPreURL = 'https://youtube.com/channel/';
+  const channelID = result.snippet.channelId;
+  const channelURL = channelPreURL + channelID;
+
   return `
-    <div>
-      <h2>${result.snippet.title}</h2>
-      <img src="${result.snippet.thumbnails.medium.url}">
+    <div class="search-item">
+      <a href="${videoURL}" target="_blank"><img class="video-thumbnail" src="${result.snippet.thumbnails.medium.url}"></a>
+      <h3 class="video-title">${result.snippet.title} by <a href="${channelURL}" target="_blank">${result.snippet.channelTitle}</a><h3>
+      <p class="video-description">${result.snippet.description}</p>
     </div>
   `
 }

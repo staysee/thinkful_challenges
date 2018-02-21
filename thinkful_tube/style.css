@@ -1,0 +1,59 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #4e4b4b;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+}
+
+main {
+	text-align: center;
+}
+
+
+/*QUERY*/
+.youtube {
+	color: red;
+}
+
+.query {
+	width: 200px;
+	border-radius: 4px;
+}
+
+button {
+	padding: 2px;
+	border-radius: 4px;
+	width: 70px;
+}
+
+
+/*RESULTS*/
+.results {
+	font-family: 'Montserrat', sans-serif;
+	color: #9a9696;
+}
+
+.search-item {
+	width: 400px;
+	margin: 50px auto;
+}
+
+.video-thumbnail {
+
+}
+
+.video-title {
+	font-size: 16px;
+}
+
+.video-description {
+	font-size: 12px;
+}
+
+/*CHANNEL LINKS*/
+a:link { color: #5d72e6; }
+a:visited { color: #162888; }
+a:hover { color: white; }
