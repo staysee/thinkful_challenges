@@ -2,18 +2,10 @@ const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 const API_KEY = 'AIzaSyCLeJQoGA1Zn8dKKofZo41swOloXIcUefg';
 let search_term;
 
+const isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null //boolean check for iOS devices
 
-// load Youtube API code asynchronously
-// var tag = document.createElement('script')
-
-// tag.src = "https://www.youtube.com/iframe_api";
-// var firstScriptTag = document.getElementsByTagName('script')[0]
-// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
-
-var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null //boolean check for iOS devices
-
-var youtubelightbox = document.getElementById('youtubelightbox')
-var player // variable to hold new YT.Player() instance
+const youtubelightbox = document.getElementById('youtubelightbox')
+let player // variable to hold new YT.Player() instance
 
 // Hide lightbox when clicked on
 youtubelightbox.addEventListener('click', function(){
@@ -70,7 +62,7 @@ function displayYouTubeSearchData(data){
     return renderResult(item)
   })
   $('.js-search-results').html(results);
-  // $('.total-results').html(data.pageInfo.totalResults);
+  $('.total-results').html(data.pageInfo.totalResults + " result(s) found.");
   getNextPage(data.nextPageToken);
   getPrevPage(data.prevPageToken);
 }
