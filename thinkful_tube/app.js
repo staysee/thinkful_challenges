@@ -119,6 +119,9 @@ function displayYouTubeSearchData(data){
   })
   $('.js-search-results').html(results);
   // $('.total-results').html(data.pageInfo.totalResults);
+  console.log(data.nextPageToken);
+  console.log(data.prevPageToken);
 }
+
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 const API_KEY = 'AIzaSyCLeJQoGA1Zn8dKKofZo41swOloXIcUefg';
