@@ -24,7 +24,7 @@ function renderResult(result) {
 
   return `
     <div class="search-item">
-      <a href="${videoURL}" target="_blank"><img class="video-thumbnail" src="${result.snippet.thumbnails.medium.url}"></a>
+      <a href="${videoURL}" class="lightbox-trigger"><img class="video-thumbnail" src="${result.snippet.thumbnails.medium.url}"></a>
       <h3 class="video-title">${result.snippet.title} by <a href="${channelURL}" target="_blank">${result.snippet.channelTitle}</a><h3>
       <p class="video-description">${result.snippet.description}</p>
     </div>
@@ -51,4 +51,29 @@ function watchSubmit() {
   })
 }
 
+function handleLightBox() {
+  $('.js-search-results').on('click', '.lightbox-trigger', function(event){
+    event.preventDefault()
+    var video_src = $(this).attr("href");
+
+    if ($('#lightbox').length > 0) {
+      $('.video-container').html('<iframe src="' + video_src +'""></iframe>')
+      $('#lightbox').show();
+    }
+    else {
+      var lightbox = `
+        <div id="lightbox">
+          <p>Click to close</p>
+          <div id="video-container">
+            <iframe src="${video_src}"></iframe>
+          </div>
+        </div>
+      `
+      $('body').append(lightbox);
+    }
+
+  })
+}
+
 $(watchSubmit);
+$(handleLightBox);
