@@ -6,33 +6,48 @@
   <title>Thinkful Tube</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Raleway|Montserrat" rel="stylesheet">
+  <!-- Lity CDN -->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.3.0/lity.css" rel="styleshet"> -->
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="lity.css"> -->
+
 </head>
 <body>
 
 <main>
   <h1>Search <span class="youtube">YouTube</span></h1>
 
-  <form class="search-form js-search-form">
+  <form action="#" class="search-form js-search-form">
     <label for="query"></label>
-    <input type="text" class="query js-query">
+    <input type="text" class="query js-query" required>
     <button type="submit">Search</button>
   </form>
 
-  <h2 class="results">Results</h2>
-  <div class="js-search-results"></div>
+  <div class="total-results"></div>
+
+  <div class="results js-search-results"></div>
+
+  <div class="pagination">
+    <button type="button" id="prevPage" class="hidden">Previous</button>
+    <button type="button" id="nextPage" class="hidden">Next</button>
+  </div>
+
 </main>
 
-<!-- <div id="lightbox"> -->
-  <!-- <p>Click to close</p> -->
-  <!-- <div id="video-container"> -->
-    <!-- <iframe src="https://www.youtube.com/embed/fju9ii8YsGs"></iframe> -->
-  <!-- </div> -->
-<!-- </div> -->
+
+<div id="lightbox">
+    <p>Click to close</p>
+    <div id="video-container">
+        <iframe src="https://www.youtube.com/embed/fju9ii8YsGs"></iframe>
+    </div>
+</div>
+
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- lity -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.3.0/lity.js"></script> -->
 <!-- javaScript -->
 <script type="text/javascript" src="app.js"></script>
 </body>

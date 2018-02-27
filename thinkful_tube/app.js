@@ -5,8 +5,8 @@ function getDataFromApi (searchTerm, callback){
   const query = {
     part: 'snippet',
     key: API_KEY,
-    q: searchTerm,
-    per_page: 5,
+    q: `${searchTerm} in:title`,
+    maxResults: 6,
     type: 'video'
   }
 
@@ -24,9 +24,10 @@ function renderResult(result) {
 
   return `
     <div class="search-item">
-      <a href="${videoURL}" class="lightbox-trigger"><img class="video-thumbnail" src="${result.snippet.thumbnails.medium.url}"></a>
-      <h3 class="video-title">${result.snippet.title} by <a href="${channelURL}" target="_blank">${result.snippet.channelTitle}</a><h3>
-      <p class="video-description">${result.snippet.description}</p>
+        <a class="video lightbox-trigger" href="${videoURL}" target="_blank"><img src="${result.snippet.thumbnails.medium.url}"></a>
+        <div class="video-title">${result.snippet.title}</div>
+        <div class="video-description">${result.snippet.description}</div>
+        <div class="channel-title">View more by <a href="${channelURL}" target="_blank">${result.snippet.channelTitle}</a></div>
     </div>
   `
 }
@@ -36,6 +37,7 @@ function displayYouTubeSearchData(data){
     return renderResult(item)
   })
   $('.js-search-results').html(results);
+  $('.total-results').html(data.pageInfo.totalResults);
 }
 
 function watchSubmit() {
