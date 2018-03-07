@@ -1,6 +1,5 @@
-const username = 'scs849'
-const API_KEY = '661803bbd7d78893324ae35d3049a82f2ff6168b';
-const FLIGHT_AWARE_URL = 'https://' + username + ':' + API_KEY + '@flightxml.flightaware.com/json/FlightXML3/';
+
+const FLIGHT_AWARE_URL = 'https://flightxml.flightaware.com/json/FlightXML3/';
 
 function getDataFromApi (searchTerm, callback){
   const query = {
@@ -9,11 +8,19 @@ function getDataFromApi (searchTerm, callback){
     offset: 0
   }
 
+  function make_base_auth(username, API_KEY){
+    var tok = username + ":" + API_KEY;
+    var hash = Base64.encode(tok);
+    return "Basic" + hash;
+  }
   $.ajax({
     url: FLIGHT_AWARE_URL + 'FlightInfoStatus',
     data: query,
     method: 'GET',
     dataType: 'jsonp',
+    beforeSend: function(xhr){
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + API_KEY));
+    },
     success: function (data, txtStatus, xhr){
       if (data.error) {
         alert('Failed to fetch flight: ' + data.error);
