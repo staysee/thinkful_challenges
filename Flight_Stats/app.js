@@ -1,6 +1,7 @@
 
 const APP_ID = config.APP_ID;
 const API_KEY = config.API_KEY;
+const URL = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/UA/2008/arr/2018/03/13?appId=' + APP_ID + '&appKey=' + API_KEY + '&utc=false'
 
 function getDataFromApi (searchTerm, callback){
   const query = {
