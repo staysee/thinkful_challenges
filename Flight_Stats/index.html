@@ -3,29 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Flight Stats</title>
+  <title>Flight App</title>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
 
-<main>
+<div class="container">
 
-  <form action="#" class="search-form js-search-form">
-    <label for="query"></label>
-    <input type="text" class="query js-query" required>
-    <button type="submit">Search</button>
-  </form>
+	<h1>Flight App</h1>
 
 
-  <div class="results js-search-results"></div>
+	<form id="search-form" action="#">
+		<label for="flight-query">Flight information:</label>
+		<input type="text" name="flight-query" id="flight-query" placeholder="Enter airline code and flight ID"/>
+		<div class="form-buttons">
+	    	<button id="add-flight-button">Add Flight</button>
+	    	<button id="reset-flights-button">Reset</button>
+	    </div>
+	</form>
 
 
-</main>
+	<ul class="flights-list">
+		<li>
+			<span id='close'>x</span>
+			<div class="flight-identification">JBU1234</div>
+			<div class="flight-locations">JFK - LAX</div>
+			<div class="flight-status">Schedule On-Time</div>
+			<div class="flight-arrival">ETA: 12:30 PST</div>
+		</li>
+	</ul>
+
+</div>
+
+
+
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Config -->
-<script type='text/javascript' src='config.js'></script>
+<!-- <script type='text/javascript' src='config.js'></script> -->
 <!-- javaScript -->
 <script type="text/javascript" src="app.js"></script>
 </body>

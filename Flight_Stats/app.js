@@ -1,78 +1,99 @@
+'use strict';
+// const APP_ID = config.APP_ID;
+// const API_KEY = config.API_KEY;
+//const URL = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/UA/2008/arr/2018/03/13?appId=' + APP_ID + '&appKey=' + API_KEY + '&utc=false'
+const TEST_URL = 'https://sapi-framework.appspot.com/query?airline=JBU&flight_number=1723';
 
-const APP_ID = config.APP_ID;
-const API_KEY = config.API_KEY;
-const URL = 'https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/UA/2008/arr/2018/03/13?appId=' + APP_ID + '&appKey=' + API_KEY + '&utc=false'
 
-function getDataFromApi (searchTerm, callback){
-  const query = {
-    ident: `${searchTerm}`,
-    howMany: 2,
-    offset: 0
-  }
 
-  function make_base_auth(username, API_KEY){
-    var tok = username + ":" + API_KEY;
-    var hash = Base64.encode(tok);
-    return "Basic" + hash;
-  }
+// State Object
+var state = {
+  flights: []
+};
+
+
+// State Mod Functions
+function getFlight (state, itemIndex){
+  state.flights[itemIndex];
+}
+
+function addFlight (state, flight){
+  state.flights.push(flight);
+}
+
+function deleteFlight (state, itemIndex){
+  state.flights.splice(itemIndex, 1);
+}
+
+// Rendering
+function renderList (state, element){
+  var itemsHTML = state.flights.map(function(flight){
+    return `
+      <li class="flight-entry">
+        <span id='close'>x</span>
+        <div class="temp-flight">`+ flight + `</div>
+        <div class="flight-identification">JBU1234</div>
+        <div class="flight-locations">JFK --> LAX</div>
+        <div class="flight-status">Schedule On-Time</div>
+        <div class="flight-arrival">ETA: 12:30 PST</div>
+      </li>
+    `
+  })
+  element.html(itemsHTML);
+}
+
+// API
+function getDataFromApi(){
   $.ajax({
-    url: FLIGHT_AWARE_URL + 'FlightInfoStatus',
-    data: query,
-    method: 'GET',
-    dataType: 'jsonp',
-    beforeSend: function(xhr){
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + API_KEY));
-    },
-    success: function (data, txtStatus, xhr){
-      if (data.error) {
-        alert('Failed to fetch flight: ' + data.error);
-        return;
-      }
+    url: TEST_URL,
+    dataType: 'json',
+    success: function(data){
       console.log(data);
+      console.log('Flight Status: ' + data.flightStatuses[0].status);
+      console.log('Departure Airport: ' + data.flightStatuses[0].departureAirportFsCode);
+      console.log('Arrival Airport: ' + data.flightStatuses[0].arrivalAirportFsCode);
+      console.log('ETA: ' + data.flightStatuses[0].operationalTimes.estimatedGateArrival.dateLocal);
     },
-    error: function(data, text){
-      alert('Failed to decode route: ' + data);
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(textStatus);
     }
-  })
+  });
 }
 
 
-
-function renderResult(result) {
-  const videoID = result.id.videoId;
-  const channelID = result.snippet.channelId;
-
-  return `
-    <div class="search-item">
-        <a class="video lightbox" href="https://youtube.com/watch?v=${videoID}" data-videoid=${videoID} onclick="createlightbox(); console.log(\'helloworld\'); return false"><img src="${result.snippet.thumbnails.medium.url}"></a>
-        <div class="video-title">${result.snippet.title}</div>
-        <div class="video-description">${result.snippet.description}</div>
-        <div class="channel-title">View more by <a href="https://youtube.com/channel/${channelID}" target="_blank">${result.snippet.channelTitle}</a></div>
-    </div>
-  `
-}
-
-function displayYouTubeSearchData(data){
-  const results = $.map(data.items, function(item, index) {
-    return renderResult(item)
-  })
-  $('.js-search-results').html(results);
-  // $('.total-results').html(data.pageInfo.totalResults);
-  console.log(data.nextPageToken);
-  console.log(data.prevPageToken);
-}
-
-
-function watchSubmit() {
-  $('.js-search-form').submit(function(event){
+// Event Listeners
+function handleAddFlight(){
+  $('#add-flight-button').on('click', function(event){
     event.preventDefault();
-    const queryTarget = $(event.currentTarget).find('.js-query');
-    const query = queryTarget.val();
-    //console.log(query);
+    console.log('Clicked Add Flight Button')
+    getDataFromApi();
+    addFlight(state, $('#flight-query').val());
+    renderList(state, $('.flights-list'))
 
-    queryTarget.val("");  //clear input
-    getDataFromApi(query, displayYouTubeSearchData)
   })
 }
 
-$(watchSubmit);
+function handleDeleteFlight(){
+  $('.flights-list').on('click', '#close', function(event){
+    var itemIndex = $(this).closest('li').index();
+    console.log(itemIndex);
+    deleteFlight(state, itemIndex);
+    renderList(state, $('.flights-list'));
+  })
+}
+
+function handleResetButton(){
+  $('#reset-flights-button').on('click', function(event){
+    event.preventDefault();
+    //console.log('Reset button')
+    //location.reload();
+    console.log('Clearing state');
+    state.flights = [];
+    renderList(state, $('.flights-list'));
+
+  })
+}
+
+$(handleAddFlight)
+$(handleDeleteFlight)
+$(handleResetButton)
