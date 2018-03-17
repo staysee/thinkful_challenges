@@ -7,8 +7,12 @@ const BASE_URL = 'https://us-central1-sapi-framework.cloudfunctions.net/FlightSt
 
 // API
 function getDataFromApi(){
+  var flight_query = $('#flight-query').val();
+  var flight_number = "42";//Assign the correct flight number value here
+  var airline_code = "AC";//get the airline code from the fligt_query
+  var url = "https://us-central1-sapi-framework.cloudfunctions.net/FlightStatus?airline="+airline_code+"&flight_number="+flight_number;
   $.ajax({
-    url: BASE_URL,
+    url: url,
     method: 'GET',
     dataType: 'json',
     appId: APP_ID,
@@ -20,12 +24,11 @@ function getDataFromApi(){
     day: '16',
     success: function(data){
       console.log($('#flight-query').val());
-      var flight_query = $('#flight-query').val();
-      
+      console.log(data);
       console.log("Successfully got data from API");
       console.log(data.flightStatuses[0]);
-      var flight_number = data.flightStatuses[0].carrierFsCode + data.flightStatuses[0].flightNumber;
-      console.log(flight_number);
+      //var flight_number = data.flightStatuses[0].carrierFsCode + data.flightStatuses[0].flightNumber;
+      //console.log(flight_number);
       // console.log(data);
       // console.log('Flight Status: ' + data.flightStatuses[0].status);
       // console.log('Departure Airport: ' + data.flightStatuses[0].departureAirportFsCode);
