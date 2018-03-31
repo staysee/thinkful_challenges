@@ -1,39 +1,212 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-h1 {text-align: center;}
+body {
+  background-image: url(../img/antique_map.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left;
+  background-size: cover;
+  padding-top: 45px;
+  color: white;
+  font-family: 'Dosis', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Arvo', serif;
+  color: #d8bb26;
+  margin: 10px;
+}
+
+.intro {
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.container {
+  width: 80%;
+  min-height: 400px;
+  min-width: 260px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  background-color: rgba(14, 25, 51, 0.85);
+  border-radius: 5px;
+}
+
+/* FORM */
+#search-form {
+  margin: 0 auto;
+  border: 2px solid #988b19;
+  width: 80%;
+  padding-top: 14px;
+  margin-bottom: 5px;
+}
+
+label {
+  float: left;
+  min-width: 140px;
+  padding-left: 2%;
+}
+
+input {
+  width: 95%;
+  height: 25px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 2px;
+  border: 0;
+  font-size: 14px;
+}
+
+input:focus {
+  outline-color: #236169;
+}
+
+.form-buttons {
+  text-align: center;
+}
+
+button {
+  width: 120px;
+  height: 30px;
+  margin-top:20px;
+  background-color: #236169;
+  border: 3px solid #236169;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Dosis', sans-serif;
+  color: #ccd0d2;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 2px solid #308D99;
+}
 
 
-/*Form*/
-#search-form { text-align: center; }
-.form-buttons { display: block; }
+.error-msg {
+  color: #bd0e0b;
+  padding: 15px 5px;
+  margin: 0 auto;
+  font-weight: bolder;
+}
 
 
-/*Display Flights*/
+/* MODAL - CITY SELECTION */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 11, 21, 0.85);
+}
+
+.hidden {display: none;}
+
+.modal-content {
+  background-color: #161955;
+  margin: 50% auto; /*15% from the top and centered */
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgb(4, 16, 25), 0 6px 20px 0 rgba(15, 38, 39, 0.82);
+  outline: 0;
+  width: 80%;
+  min-width: 280px;
+}
+
+.modal-close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #159FAF;
+  text-decoration: none;
+}
+
+.modal-p {
+  text-align: center;
+}
+
+.flight-selections{
+  margin-left: -40px;
+  text-align: center;
+}
+
+
+/* DISPLAY FLIGHTS */
 .flights-list {
-	list-style: none;
-	margin: 0 auto;
-	width: 80%;
-    max-width: 750px;
-    padding-left: 0;
+  list-style: none;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 750px;
+  padding-left: 0;
+  padding-top: 5px;
 }
 
 .flight-entry {
-	text-align: center;
-	border: 2px solid black;
-	margin-top: 20px;
-    margin-bottom: 20px;
-
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgb(21, 7, 7), 0 6px 20px 0 rgba(45, 39, 39, 0.82);
+  background-color: #364755;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #close {
-    float:right;
-    display:inline-block;
-    padding:0px 2px;
-    background:#ccc;
+    float: right;
+    display: inline-block;
+    padding: 0px 2px;
+    color: black;
+    cursor: pointer;
+    /*background:#ccc;*/
 }
 
 #close:hover {
-	color:#fff;
+  color:#fff;
+}
+
+/* FLIGHT ENTRY */
+.flight-traveler {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.flight-status {
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+/*FLIGHT STATUS COLOR CODES*/
+.delayed {display: none;}
+.scheduled {background-color: #50575A;}
+.inflight {background-color: #17588D;}
+.landed {background-color: #239018;}
+.attention {background-color: #840A08;}
+.slight-delay {background-color: #EAA30B;}
+.not-operational {background-color: #232020;}
+
+
+/*MEDIA QUERIES*/
+@media only screen and (min-width: 480px){
+  .modal-content {margin: 30% auto;}
+}
+
+@media only screen and (min-width: 768px){
+  .modal-content {margin: 20% auto;}
+  label {padding-left: 7%;}
+  input {width: 85%;}
 }

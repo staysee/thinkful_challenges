@@ -3,42 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Flight App</title>
+  <title>FlightApp</title>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/datepicker.css">
-  <!-- Normalize -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis|Arvo" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
 </head>
 <body>
 
 <div class="container">
 
-	<h1>Flight App</h1>
+  <h1>FlightTrax</h1>
+  <p class="intro">Keep track of your travel buddies' flight arrivals!<br>
+  Add every flight by airline code and flight number to see whose flight has landed or is delayed.</p>
 
+  <!-- Search Form -->
+  <form id="search-form" action="#">
+    <label for="traveler-name">Traveler(s)</label>
+    <input type="text" name="traveler-name" id="traveler-name" placeholder="(Optional)"/> <br>
 
-	<form id="search-form" action="#">
-		<label for="flight-query">Flight information:</label>
-    <input type="text" name="traveler-name" id="traveler-name" placeholder="Traveler's name">
-		<input type="text" name="flight-query" id="flight-query" placeholder="Enter airline code and flight ID"/>
-    <input type="text" id="datepicker" placeholder="Departure Date">
-		<div class="form-buttons">
-	    	<button id="add-flight-button">Add Flight</button>
-	    	<button id="reset-flights-button">Reset</button>
-	    </div>
-	</form>
+    <label for="flight-query">Airline Code &amp; Flight Number</label>
+    <input type="text" name="flight-query" id="flight-query" placeholder="e.g. SWA2993 (no spaces)" required/><br>
 
+    <label for="datepicker">Departure Date</label>
+      <input type="text" name="datepicker" id="datepicker" placeholder="MM/DD/YYYY" required/>
+    <div class="form-buttons">
+        <button id="add-flight-button">Add Flight</button>
+        <button id="reset-flights-button">Reset</button>
+    </div>
 
-	<ul class="flights-list">
-		<!-- <li>
-			<span id='close'>x</span>
-			<div class="flight-identification">JBU1234</div>
-			<div class="flight-locations">JFK - LAX</div>
-			<div class="flight-status">Schedule On-Time</div>
-			<div class="flight-arrival">ETA: 12:30 PST</div>
-		</li> -->
-	</ul>
+    <div class="error-msg"></div>
+  </form>
+
+  <!-- Modal -->
+  <div id="flightModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <p class="modal-p">Please select your destination airport/city: </p>
+      <ul class="flight-selections">
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- Flight Entries -->
+  <ul class="flights-list"></ul>
 
 </div>
 
@@ -49,9 +62,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- jQuery UI -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<!-- Config -->
-<script type='text/javascript' src='config.js'></script>
-<!-- javaScript -->
-<script type="text/javascript" src="app.js"></script>
+<!-- JavaScript -->
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

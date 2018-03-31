@@ -14,9 +14,12 @@
 /* DatePicker Table */
 .ui-datepicker table {
   width: 100%;
+  background-color: black;
 }
+
+/* MONTH SECTION */
 .ui-datepicker-header {
-  background: url('../img/dark_leather.png') repeat 0 0 #000;
+  background-color: black;
   color: #e0e0e0;
   font-weight: bold;
   -webkit-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, 2);
@@ -51,6 +54,8 @@
   float: right;
   background-position: center 0px;
 }
+
+/* DAY NAMES */
 .ui-datepicker thead {
   background-color: #f7f7f7;
   background-image: -moz-linear-gradient(top,  #f7f7f7 0%, #f1f1f1 100%);
@@ -64,12 +69,14 @@
 }
 .ui-datepicker th {
   text-transform: uppercase;
-  font-size: 6pt;
-  padding: 5px 0;
+  font-size: 7pt;
+  padding: 4px 0;
   color: #666666;
   text-shadow: 1px 0px 0px #fff;
   filter: dropshadow(color=#fff, offx=1, offy=0);
 }
+
+/* DATES SECTION */
 .ui-datepicker tbody td {
   padding: 0;
   border-right: 1px solid #bbb;
@@ -83,6 +90,8 @@
 .ui-datepicker tbody tr:last-child {
   border-bottom: 0px;
 }
+
+/* DEFAULT, HOVER, AND ACTIVE OF DATES */
 .ui-datepicker td span, .ui-datepicker td a {
   display: inline-block;
   font-weight: bold;
@@ -108,24 +117,28 @@
   box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
 }
 .ui-datepicker-calendar .ui-state-hover {
-  background: #f7f7f7;
+  background: #216d7f;
+  text-shadow: none;
+  color: white;
 }
 .ui-datepicker-calendar .ui-state-active {
-  background: #6eafbf;
+  background: #216d7f;
   -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
   -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
   box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
   color: #e0e0e0;
   text-shadow: 0px 1px 0px #4d7a85;
   filter: dropshadow(color=#4d7a85, offx=0, offy=1);
-  border: 1px solid #55838f;
+  border: 2px solid #d9de0b;
   position: relative;
-  margin: -1px;
+  margin: 0px;
 }
 .ui-datepicker-unselectable .ui-state-default {
   background: #f4f4f4;
   color: #b4b3b3;
 }
+
+/* FIX ACTIVE POSITION */
 .ui-datepicker-calendar td:first-child .ui-state-active {
   width: 29px;
   margin-left: 0;
